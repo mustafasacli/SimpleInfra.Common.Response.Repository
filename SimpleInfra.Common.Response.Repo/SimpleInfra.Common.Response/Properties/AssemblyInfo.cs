@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mst.Common.Response")]
+[assembly: AssemblyTitle("SimpleInfra.Common.Response")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("Mst.Common.Response")]
+[assembly: AssemblyProduct("SimpleInfra.Common.Response")]
 [assembly: AssemblyCopyright("Copyright © HP Inc. 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8249b86c-ede0-4eac-b105-b6ea07987b13")]
+[assembly: Guid("34ceec74-886a-4db3-adf5-84739ab476a0")]
 
 // Version information for an assembly consists of the following four values:
 //

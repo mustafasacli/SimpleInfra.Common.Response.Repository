@@ -1,4 +1,4 @@
-﻿namespace Mst.Common.Response
+﻿namespace SimpleInfra.Common.Response
 {
     using System.Runtime.Serialization;
 
