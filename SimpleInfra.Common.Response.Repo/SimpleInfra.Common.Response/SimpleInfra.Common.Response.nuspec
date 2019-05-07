@@ -13,7 +13,7 @@
         <copyright>Copyright ©2019 Msacli Corporation</copyright>
         <tags>Service Response</tags>
 		<frameworkAssemblies>
-		<frameworkAssembly assemblyName="System.Runtime.Serialization" targetFramework="net452" />
-	</frameworkAssemblies>
+			<frameworkAssembly assemblyName="System.Runtime.Serialization" targetFramework="net452" />
+		</frameworkAssemblies>
     </metadata>
 </package>
