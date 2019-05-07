@@ -27,14 +27,5 @@
         [DataMember]
         public string ResponseMessage
         { get; set; }
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// <summary>   Gets or sets the response error. </summary>
-        ///
-        /// <value> The response error. </value>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        [DataMember]
-        public string ResponseError
-        { get; set; }
     }
 }

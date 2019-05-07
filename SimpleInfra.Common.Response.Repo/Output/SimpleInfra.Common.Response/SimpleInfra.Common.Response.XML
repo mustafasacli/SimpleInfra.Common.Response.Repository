@@ -19,11 +19,6 @@
             
              <value> A message describing the response. </value>
         </member>
-        <member name="P:SimpleInfra.Common.Response.ServiceResponse.ResponseError">
-             <summary>   Gets or sets the response error. </summary>
-            
-             <value> The response error. </value>
-        </member>
         <member name="T:SimpleInfra.Common.Response.ServiceResponse`1">
              <summary>   A service response. </summary>
             
