@@ -1,2 +1,3 @@
-# Mst.Common.Response.Repository
-Repository for Mst.Common.Response project.
+# SimpleInfra.Common.Response.Repository
+Repository for SimpleInfra.Common.Response project.
+
