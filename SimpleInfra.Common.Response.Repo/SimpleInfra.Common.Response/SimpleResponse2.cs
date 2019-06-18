@@ -10,7 +10,7 @@
     /// <typeparam name="T">    Generic type parameter. </typeparam>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     [DataContract]
-    public class SimpleResponse<T> : SimpleResponse where T : class
+    public class SimpleResponse<T> : SimpleResponse
     {
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>   Gets or sets the data. </summary>
