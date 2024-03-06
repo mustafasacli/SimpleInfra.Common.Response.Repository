@@ -1,7 +1,7 @@
-﻿namespace SimpleInfra.Common.Response
-{
-    using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
+namespace SimpleInfra.Common.Response
+{
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>   A simple response. </summary>
     ///
@@ -24,11 +24,12 @@
         /// <summary>
         /// Sets the code.
         /// </summary>
-        /// <param name="responseCode">The response code.</param>
+        /// <param name="code">The response code.</param>
         /// <returns>A SimpleResponse.</returns>
-        public new SimpleResponse<T> SetCode(int responseCode)
+        public new SimpleResponse<T> SetCode(int code)
         {
-            this.ResponseCode = responseCode;
+            this.ResponseCode = code;
+            this.Code = code;
             return this;
         }
 
@@ -46,11 +47,12 @@
         /// <summary>
         /// Sets the message.
         /// </summary>
-        /// <param name="responseMessage">The response message.</param>
+        /// <param name="message">The response message.</param>
         /// <returns>A SimpleResponse.</returns>
-        public new SimpleResponse<T> SetMessage(string responseMessage)
+        public new SimpleResponse<T> SetMessage(string message)
         {
-            this.ResponseMessage = responseMessage;
+            this.ResponseMessage = message;
+            this.Message = message;
             return this;
         }
 
@@ -75,7 +77,15 @@
         /// <returns></returns>
         public static SimpleResponse<T> New(T data, int responseCode = 0, string responseMessage = null, string rCode = null)
         {
-            return new SimpleResponse<T> { Data = data, ResponseCode = responseCode, ResponseMessage = responseMessage, RCode = rCode };
+            return new SimpleResponse<T>
+            {
+                Data = data,
+                ResponseCode = responseCode,
+                Code = responseCode,
+                ResponseMessage = responseMessage,
+                Message = responseMessage,
+                RCode = rCode
+            };
         }
 
         /// <summary>
@@ -87,7 +97,14 @@
         /// <returns>A SimpleResponse.</returns>
         public static SimpleResponse<T> Create(int responseCode = 0, string responseMessage = null, string rCode = null)
         {
-            return new SimpleResponse<T> { ResponseCode = responseCode, ResponseMessage = responseMessage, RCode = rCode };
+            return new SimpleResponse<T>
+            {
+                ResponseCode = responseCode,
+                Code = responseCode,
+                ResponseMessage = responseMessage,
+                Message = responseMessage,
+                RCode = rCode
+            };
         }
     }
 }

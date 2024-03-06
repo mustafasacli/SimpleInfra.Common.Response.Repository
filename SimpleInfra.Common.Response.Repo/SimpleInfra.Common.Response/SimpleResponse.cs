@@ -1,7 +1,8 @@
-﻿namespace SimpleInfra.Common.Response
-{
-    using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
+namespace SimpleInfra.Common.Response
+{
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>   A simple response. </summary>
     ///
@@ -11,11 +12,30 @@
     public class SimpleResponse
     {
         ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// <summary>   Gets or sets the code. </summary>
+        ///
+        /// <value> The code. </value>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        [DataMember]
+        public int Code
+        { get; set; }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// <summary>   Gets or sets a message describing the response. </summary>
+        ///
+        /// <value> A message describing the response. </value>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        [DataMember]
+        public string Message
+        { get; set; }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>   Gets or sets the response code. </summary>
         ///
         /// <value> The response code. </value>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         [DataMember]
+        [Obsolete("This property will be removed later versions. You can use Code property.")]
         public int ResponseCode
         { get; set; }
 
@@ -34,6 +54,7 @@
         /// <value> A message describing the response. </value>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         [DataMember]
+        [Obsolete("This property will be removed later versions. You can use Message property.")]
         public string ResponseMessage
         { get; set; }
 
@@ -46,17 +67,25 @@
         /// <returns></returns>
         public static SimpleResponse New(int responseCode = 0, string responseMessage = null, string rCode = null)
         {
-            return new SimpleResponse { ResponseCode = responseCode, ResponseMessage = responseMessage, RCode = rCode };
+            return new SimpleResponse
+            {
+                ResponseCode = responseCode,
+                Code = responseCode,
+                ResponseMessage = responseMessage,
+                Message = responseMessage,
+                RCode = rCode
+            };
         }
 
         /// <summary>
         /// Sets the code.
         /// </summary>
-        /// <param name="responseCode">The response code.</param>
+        /// <param name="code">The response code.</param>
         /// <returns>A SimpleResponse.</returns>
-        public SimpleResponse SetCode(int responseCode)
+        public SimpleResponse SetCode(int code)
         {
-            this.ResponseCode = responseCode;
+            this.ResponseCode = code;
+            this.Code = code;
             return this;
         }
 
@@ -74,11 +103,12 @@
         /// <summary>
         /// Sets the message.
         /// </summary>
-        /// <param name="responseMessage">The response message.</param>
+        /// <param name="message">The response message.</param>
         /// <returns>A SimpleResponse.</returns>
-        public SimpleResponse SetMessage(string responseMessage)
+        public SimpleResponse SetMessage(string message)
         {
-            this.ResponseMessage = responseMessage;
+            this.ResponseMessage = message;
+            this.Message = message;
             return this;
         }
     }
