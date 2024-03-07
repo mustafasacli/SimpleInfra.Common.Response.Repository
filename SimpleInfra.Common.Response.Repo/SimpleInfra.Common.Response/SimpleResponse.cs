@@ -61,20 +61,16 @@ namespace SimpleInfra.Common.Response
         /// <summary>
         /// Creates new SimpleResponse
         /// </summary>
-        /// <param name="responseCode"></param>
-        /// <param name="responseMessage"></param>
+        /// <param name="code"></param>
+        /// <param name="message"></param>
         /// <param name="rCode"></param>
         /// <returns></returns>
-        public static SimpleResponse New(int responseCode = 0, string responseMessage = null, string rCode = null)
+        public static SimpleResponse New(int code = 0, string message = null, string rCode = null)
         {
-            return new SimpleResponse
-            {
-                ResponseCode = responseCode,
-                Code = responseCode,
-                ResponseMessage = responseMessage,
-                Message = responseMessage,
-                RCode = rCode
-            };
+            return (new SimpleResponse())
+                    .SetCode(code)
+                    .SetMessage(message)
+                    .SetRCode(rCode);
         }
 
         /// <summary>
@@ -110,6 +106,30 @@ namespace SimpleInfra.Common.Response
             this.ResponseMessage = message;
             this.Message = message;
             return this;
+        }
+
+        /// <summary>
+        /// Creates SimpleResponse with Code(value: 1) and given message.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns>Returns SimpleResponse instance with Code(value: 1) and given message.</returns>
+        public static SimpleResponse Success(string message = null)
+        {
+            return (new SimpleResponse())
+                    .SetCode(1)
+                    .SetMessage(message);
+        }
+
+        /// <summary>
+        /// Creates SimpleResponse with Code(value: -1) and given message.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns>Returns SimpleResponse instance with Code(value: -1) and given message.</returns>
+        public static SimpleResponse Fail(string message = null)
+        {
+            return (new SimpleResponse())
+                    .SetCode(-1)
+                    .SetMessage(message);
         }
     }
 }

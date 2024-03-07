@@ -71,40 +71,56 @@ namespace SimpleInfra.Common.Response
         /// Creates new SimpleResponse instance.
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="responseCode"></param>
-        /// <param name="responseMessage"></param>
+        /// <param name="code"></param>
+        /// <param name="message"></param>
         /// <param name="rCode"></param>
         /// <returns></returns>
-        public static SimpleResponse<T> New(T data, int responseCode = 0, string responseMessage = null, string rCode = null)
+        public static SimpleResponse<T> New(T data, int code = 0, string message = null, string rCode = null)
         {
-            return new SimpleResponse<T>
-            {
-                Data = data,
-                ResponseCode = responseCode,
-                Code = responseCode,
-                ResponseMessage = responseMessage,
-                Message = responseMessage,
-                RCode = rCode
-            };
+            return (new SimpleResponse<T>())
+                    .SetData(data)
+                    .SetCode(code)
+                    .SetMessage(message)
+                    .SetRCode(rCode);
         }
 
         /// <summary>
         /// Creates the.
         /// </summary>
-        /// <param name="responseCode">The response code.</param>
-        /// <param name="responseMessage">The response message.</param>
+        /// <param name="code">The response code.</param>
+        /// <param name="message">The response message.</param>
         /// <param name="rCode">The r code.</param>
         /// <returns>A SimpleResponse.</returns>
-        public static SimpleResponse<T> Create(int responseCode = 0, string responseMessage = null, string rCode = null)
+        public static SimpleResponse<T> Create(int code = 0, string message = null, string rCode = null)
         {
-            return new SimpleResponse<T>
-            {
-                ResponseCode = responseCode,
-                Code = responseCode,
-                ResponseMessage = responseMessage,
-                Message = responseMessage,
-                RCode = rCode
-            };
+            return (new SimpleResponse<T>())
+                    .SetCode(code)
+                    .SetMessage(message)
+                    .SetRCode(rCode);
+        }
+
+        /// <summary>
+        /// Creates SimpleResponse with Code(value: 1) and given message.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns>Returns SimpleResponse instance with Code(value: 1) and given message.</returns>
+        public new static SimpleResponse<T> Success(string message = null)
+        {
+            return (new SimpleResponse<T>())
+                    .SetCode(1)
+                    .SetMessage(message);
+        }
+
+        /// <summary>
+        /// Creates SimpleResponse with Code(value: -1) and given message.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns>Returns SimpleResponse instance with Code(value: -1) and given message.</returns>
+        public new static SimpleResponse<T> Fail(string message = null)
+        {
+            return (new SimpleResponse<T>())
+                    .SetCode(-1)
+                    .SetMessage(message);
         }
     }
 }
