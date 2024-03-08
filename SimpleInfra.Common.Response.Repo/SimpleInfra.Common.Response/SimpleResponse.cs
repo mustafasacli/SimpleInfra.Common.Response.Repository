@@ -109,6 +109,28 @@ namespace SimpleInfra.Common.Response
         }
 
         /// <summary>
+        /// Set response with Code(value: 1) and given message.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns>Returns SimpleResponse instance with Code(value: 1) and given message.</returns>
+        public SimpleResponse SetSuccess(string message = null)
+        {
+            return this.SetCode(1)
+                    .SetMessage(message);
+        }
+
+        /// <summary>
+        /// Set response with Code(value: -1) and given message.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns>Returns SimpleResponse instance with Code(value: -1) and given message.</returns>
+        public SimpleResponse SetFail(string message = null)
+        {
+            return this.SetCode(-1)
+                    .SetMessage(message);
+        }
+
+        /// <summary>
         /// Creates SimpleResponse with Code(value: 1) and given message.
         /// </summary>
         /// <param name="message"></param>
