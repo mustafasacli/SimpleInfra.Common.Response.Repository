@@ -68,6 +68,18 @@ namespace SimpleInfra.Common.Response
         }
 
         /// <summary>
+        /// Resets this instance with Code(0) and Message(null).
+        /// </summary>
+        /// <returns>Returns instance equal to SimpleResponse<T>.New() </returns>
+        public new SimpleResponse Reset()
+        {
+            return this.SetCode(0)
+                    .SetRCode(null)
+                    .SetMessage(null)
+                    .SetData(default(T));
+        }
+
+        /// <summary>
         /// Creates new SimpleResponse instance.
         /// </summary>
         /// <param name="data"></param>
