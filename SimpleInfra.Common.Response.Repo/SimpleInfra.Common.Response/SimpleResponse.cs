@@ -59,6 +59,26 @@ namespace SimpleInfra.Common.Response
         { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether this instance is fail. if code is less than 0 return true, else return false.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is fail; otherwise, <c>false</c>.
+        /// </value>
+        [DataMember]
+        public bool IsFail
+        { get { return this.Code < 0; } }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is success. if code is greater than 0 return true, else return false.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is success; otherwise, <c>false</c>.
+        /// </value>
+        [DataMember]
+        public bool IsSuccess
+        { get { return this.Code > 0; } }
+
+        /// <summary>
         /// Creates new SimpleResponse
         /// </summary>
         /// <param name="code"></param>
@@ -163,6 +183,23 @@ namespace SimpleInfra.Common.Response
             return (new SimpleResponse())
                     .SetCode(-1)
                     .SetMessage(message);
+        }
+
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance. if the Code property value is equal return true, else returns false.
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is SimpleResponse response)
+            {
+                return this.Code == response.Code;
+            }
+
+            return false;
         }
     }
 }
