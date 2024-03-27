@@ -193,5 +193,14 @@ namespace SimpleInfra.Common.Response
 
             return false;
         }
+
+        /// <summary>
+        /// Get object as simpleresponse.
+        /// </summary>
+        /// <returns></returns>
+        public SimpleResponse AsResponse()
+        {
+            return New(this.Code, this.Message, this.RCode);
+        }
     }
 }

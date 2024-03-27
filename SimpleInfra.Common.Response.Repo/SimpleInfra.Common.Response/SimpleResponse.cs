@@ -11,6 +11,9 @@ namespace SimpleInfra.Common.Response
     [DataContract]
     public class SimpleResponse
     {
+        private int _code;
+        private string _message;
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>   Gets or sets the code. </summary>
         ///
@@ -18,7 +21,10 @@ namespace SimpleInfra.Common.Response
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         [DataMember]
         public int Code
-        { get; set; }
+        {
+            get { return _code; }
+            set { _code = value; }
+        }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>   Gets or sets a message describing the response. </summary>
@@ -27,7 +33,10 @@ namespace SimpleInfra.Common.Response
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         [DataMember]
         public string Message
-        { get; set; }
+        {
+            get { return _message; }
+            set { _message = value; }
+        }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>   Gets or sets the response code. </summary>
@@ -37,7 +46,10 @@ namespace SimpleInfra.Common.Response
         [DataMember]
         [Obsolete("This property will be removed later versions. You can use Code property.")]
         public int ResponseCode
-        { get; set; }
+        {
+            get { return _code; }
+            set { _code = value; }
+        }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>   Gets or sets the response code. </summary>
@@ -56,7 +68,10 @@ namespace SimpleInfra.Common.Response
         [DataMember]
         [Obsolete("This property will be removed later versions. You can use Message property.")]
         public string ResponseMessage
-        { get; set; }
+        {
+            get { return _message; }
+            set { _message = value; }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is fail. if code is less than 0 return true, else return false.
