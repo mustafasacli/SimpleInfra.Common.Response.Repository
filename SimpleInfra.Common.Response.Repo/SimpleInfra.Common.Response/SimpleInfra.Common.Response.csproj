@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimplePagedResponse.cs" />
     <Compile Include="SimpleResponse.cs" />
     <Compile Include="ServiceResponse.cs" />
     <Compile Include="SimpleResponse2.cs" />
