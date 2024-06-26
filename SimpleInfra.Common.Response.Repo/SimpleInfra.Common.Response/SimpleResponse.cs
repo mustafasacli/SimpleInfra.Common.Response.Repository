@@ -166,7 +166,7 @@ namespace SimpleInfra.Common.Response
         }
 
         /// <summary>
-        /// Resets this instance with Code(0) and Message(null).
+        /// Resets this instance with Code(0) and Message(null) and Rcode(null).
         /// </summary>
         /// <returns>Returns instance equal to SimpleResponse.New() </returns>
         public SimpleResponse Reset()
@@ -201,6 +201,31 @@ namespace SimpleInfra.Common.Response
         }
 
         /// <summary>
+        /// Imports the specified response values.
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <returns>Returns SimpleResponse instance with given code and message.</returns>
+        public SimpleResponse Import(SimpleResponse response)
+        {
+            return this.SetCode(response.Code)
+                    .SetMessage(response.Message)
+                    .SetRCode(response.RCode);
+        }
+
+        /// <summary>
+        /// Imports the specified response.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response">The response.</param>
+        /// <returns>Returns SimpleResponse instance with given code and message.</returns>
+        public SimpleResponse Import<T>(SimpleResponse<T> response)
+        {
+            return this.SetCode(response.Code)
+                    .SetMessage(response.Message)
+                    .SetRCode(response.RCode);
+        }
+
+        /// <summary>
         /// Determines whether the specified <see cref="System.Object" />, is equal to this instance. if the Code property value is equal return true, else returns false.
         /// </summary>
         /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
@@ -215,6 +240,26 @@ namespace SimpleInfra.Common.Response
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Adds the code to current response code.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <returns>Returns SimpleResponse instance with Code(with added value) and current message.</returns>
+        public SimpleResponse AddCode(int code)
+        {
+            return this.SetCode(this.Code + code);
+        }
+
+        /// <summary>
+        /// Adds the message to current message.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <returns>Returns SimpleResponse instance with Message(with added message) and current code.</returns>
+        public SimpleResponse AddMessage(string message)
+        {
+            return this.SetMessage(string.Format("{0}{1}", this.Message, message));
         }
     }
 }
