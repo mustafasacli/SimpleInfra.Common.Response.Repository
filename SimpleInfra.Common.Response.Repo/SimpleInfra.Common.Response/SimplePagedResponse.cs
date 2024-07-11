@@ -38,7 +38,6 @@ namespace SimpleInfra.Common.Response
         public List<T> Items
         {
             get { return _page ?? new List<T>(); }
-            set { _page = value; }
         }
 
         // TODO  : Method chaining will be added.
@@ -85,7 +84,8 @@ namespace SimpleInfra.Common.Response
         /// <returns>A SimpleResponse.</returns>
         public SimplePagedResponse<T> SetItems(List<T> data)
         {
-            this.Items = data;
+            _page?.Clear();
+            _page = data;
             return this;
         }
 
