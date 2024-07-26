@@ -44,7 +44,7 @@ namespace SimpleInfra.Common.Response
         /// <value> The response code. </value>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         [DataMember]
-        [Obsolete("This property will be removed later versions. You can use Code property.")]
+        [Obsolete("This property will be removed later versions. You should use Code property.")]
         public int ResponseCode
         {
             get { return _code; }
@@ -66,7 +66,7 @@ namespace SimpleInfra.Common.Response
         /// <value> A message describing the response. </value>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         [DataMember]
-        [Obsolete("This property will be removed later versions. You can use Message property.")]
+        [Obsolete("This property will be removed later versions. You should use Message property.")]
         public string ResponseMessage
         {
             get { return _message; }
@@ -115,7 +115,6 @@ namespace SimpleInfra.Common.Response
         /// <returns>A SimpleResponse.</returns>
         public SimpleResponse SetCode(int code)
         {
-            this.ResponseCode = code;
             this.Code = code;
             return this;
         }
@@ -138,7 +137,6 @@ namespace SimpleInfra.Common.Response
         /// <returns>A SimpleResponse.</returns>
         public SimpleResponse SetMessage(string message)
         {
-            this.ResponseMessage = message;
             this.Message = message;
             return this;
         }

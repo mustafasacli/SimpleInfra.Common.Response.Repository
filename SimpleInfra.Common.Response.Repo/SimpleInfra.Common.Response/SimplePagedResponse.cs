@@ -40,8 +40,6 @@ namespace SimpleInfra.Common.Response
             get { return _page ?? new List<T>(); }
         }
 
-        // TODO  : Method chaining will be added.
-
         /// <summary>
         /// Sets the code.
         /// </summary>
@@ -49,7 +47,6 @@ namespace SimpleInfra.Common.Response
         /// <returns>A SimpleResponse.</returns>
         public new SimplePagedResponse<T> SetCode(int code)
         {
-            this.ResponseCode = code;
             this.Code = code;
             return this;
         }
@@ -72,7 +69,6 @@ namespace SimpleInfra.Common.Response
         /// <returns>A SimpleResponse.</returns>
         public new SimplePagedResponse<T> SetMessage(string message)
         {
-            this.ResponseMessage = message;
             this.Message = message;
             return this;
         }
