@@ -89,7 +89,7 @@ namespace SimpleInfra.Common.Response
         /// Resets this instance with Code(0) and Message(null).
         /// </summary>
         /// <returns>Returns instance equal to SimpleResponse{T}.New() </returns>
-        public new SimpleResponse Reset()
+        public new SimpleResponse<T> Reset()
         {
             return this.SetCode(0)
                     .SetRCode(null)
